@@ -1,0 +1,17 @@
+@import '../../styles/abstract/variables';
+.navigation {
+  
+  ul {
+    
+    list-style-type: none;
+
+    display: flex;
+    gap: 42px;
+    align-content: center;
+    padding-left: 0;
+    a {
+      text-decoration: none;
+      color: $header-text-color;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../../styles/abstract/variables';
+.header {
+  width: 100%;
+  height: $header-hight;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  background-image: url('../../../assets/images/bg-img-preview.jpg');
+  background-size: cover;
+  box-shadow: inset 0 $header-hight 0 $header-bg-color;
+}

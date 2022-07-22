@@ -1,0 +1,8 @@
+@import '../../styles/abstract/variables';
+.logo {
+  display: flex;
+  gap: 6px;
+  .logo__description {
+    color: $header-text-color;
+  }
+}
