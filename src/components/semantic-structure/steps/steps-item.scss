@@ -1,0 +1,11 @@
+.steps-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.steps-item__icon {
+  width: 100px;
+  height: 100px;
+}

@@ -1,0 +1,30 @@
+.plan-your-trip {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 46px;
+  width: 892px;
+  padding-top: 32px;
+  padding-left: 120px;
+}
+
+.plan-your-trip-form {
+  position: relative;
+}
+
+.start-search__input {
+  width: 100%;
+  height: 95px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.7);
+  border: 0;
+  padding-left: 20px;
+  font-size: 30px;
+}
+
+.start-search__button {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  cursor: pointer;
+}

@@ -1,0 +1,129 @@
+.button {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: normal;
+    color: $text-color-light;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.link {
+    color: $text-color-light;
+}
+
+.header {
+
+    .logo {
+        font-family: Magra, Verdana sans-serif;
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 39px;
+    }
+
+    .navigation {
+        font-family: 'Red Hat Text';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .header__button {
+        font-size: 16px;
+        line-height: 21px;
+    }
+}
+
+.main__button {
+    font-size: 24px;
+    line-height: 32px;
+}
+
+h1 {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80px;
+    line-height: 96px;
+    color: $text-color-light;
+}
+
+h2 {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 53px;
+    color: $text-color-colored;
+}
+
+h3 {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    color: $text-color-dark;
+}
+
+.start__description {
+    font-family: 'Aleo';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: $text-color-light;
+}
+
+.steps-item__description {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+}
+
+.destinations__text {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 42px;
+}
+
+.post__description__text {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: $text-color-dark
+}
+
+.post__read-more-link {
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    text-decoration-line: underline;
+}
+
+.start-search__input::placeholder {
+    // font: italic 400 24px 29px Aleo;
+    font-family: 'Aleo';
+    font-style: italic;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: $text-color-colored;
+}
+
+.footer__description {
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: $text-color-light;
+}

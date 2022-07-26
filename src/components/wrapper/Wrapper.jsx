@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import './wrapper.scss';
 
-function Wrapper(props) {
+function Wrapper({ elem }) {
   return (
-    <div className="wrapper">{props.elem}</div>
-  )
+    <div className="wrapper">{elem}</div>
+  );
 }
 
 export default Wrapper;
