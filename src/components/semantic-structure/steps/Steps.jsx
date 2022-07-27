@@ -1,6 +1,7 @@
 import React from 'react';
 import './steps.scss';
 import StepsItem from './StepsItem';
+
 import Bike from '../../../assets/icons/bike.svg';
 import Calendar from '../../../assets/icons/calendar.svg';
 import Airplane from '../../../assets/icons/airplane.svg';

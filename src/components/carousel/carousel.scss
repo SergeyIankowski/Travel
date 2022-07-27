@@ -1,0 +1,44 @@
+@import '../../styles/abstract/variables';
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  gap: 60px;
+  justify-content: flex-start;
+  // margin-left: -200px
+}
+
+.carousel__item {
+  position: relative;
+}
+
+.carousel__caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.markers {
+  display: flex;
+  gap: 10px;
+}
+
+.marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $marker-color;
+}
+
+.marker:hover {
+  background-color: $marker-color-checked;
+}
+
+.marker_checked {
+  background-color: $marker-color-checked;
+}

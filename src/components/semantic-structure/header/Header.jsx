@@ -11,7 +11,7 @@ function Header() {
       <header className="header">
         <Logo />
         <Navigation navFields={navLinks} />
-        <LoginBtn />
+        <LoginBtn innerText="Login" />
       </header>
     </React.StrictMode>
   );
