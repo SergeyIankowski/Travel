@@ -92,22 +92,27 @@ h3 {
     color: $text-color-light;
 }
 
-.post__description__text {
+.story__head {
+    color: $story-text-color;
+}
+
+.story__synopsis {
     font-family: 'Aleo';
     font-style: normal;
     font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: $text-color-dark
+    font-size: 1.25rem;
+    line-height: 1.5rem;
+    color: $story-text-color
 }
 
-.post__read-more-link {
+.story__read-more-link {
     font-family: 'Aleo';
     font-style: normal;
     font-weight: 700;
     font-size: 20px;
     line-height: 24px;
     text-decoration-line: underline;
+    color: $story-text-color;
 }
 
 .start-search__input::placeholder {

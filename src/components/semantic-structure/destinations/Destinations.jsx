@@ -1,7 +1,7 @@
 import React from 'react';
 import './destinations.scss';
 import Carousel from '../../carousel/Carousel';
-import MoreButton from '../../buttons/Login/more-button/MoreButton';
+import MoreButton from '../../buttons/more-button/MoreButton';
 
 function Destinations() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import './moreButton.scss';
 
-import rightArrow from '../../../../assets/icons/right-arrow.svg';
+import rightArrow from '../../../assets/icons/right-arrow.svg';
 
 function MoreButton({ innerText }) {
   return (
