@@ -1,0 +1,25 @@
+.footer {
+  background-image: url('../../../assets/images/boat-and-water.png');
+  background-position: bottom;
+  height: 101px;
+
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.alignment-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 70%;
+}
+
+.footer__social-networks-links {
+  display: flex;
+  gap: 20px;
+}
+
+.social-network-link {
+  cursor: pointer;
+}

@@ -7,6 +7,7 @@
     line-height: 32px;
 }
 
+
 .link {
     color: $text-color-light;
 }
@@ -116,7 +117,6 @@ h3 {
 }
 
 .start-search__input::placeholder {
-    // font: italic 400 24px 29px Aleo;
     font-family: 'Aleo';
     font-style: italic;
     font-weight: 400;
@@ -132,4 +132,98 @@ h3 {
     font-size: 16px;
     line-height: 21px;
     color: $text-color-light;
+}
+
+@media (max-width: $point-one) {
+    h1 {
+        font-size: 70px;
+        line-height: 84px;
+    }
+
+    h2 {
+        font-size: 35px;
+        line-height: 39px;
+    }
+
+    .start__description {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .steps-item__description {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+
+}
+
+@media (max-width: $point-two) {
+    h1 {
+        font-size: 50px;
+        line-height: 60px;
+    }
+
+    h2 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .start__description {
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+}
+
+@media (max-width: $point-three) {
+    h1 {
+        font-size: 40px;
+        line-height: 48px;
+    }
+
+    h2 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    .start__description {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .button {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .start-search__input::placeholder {
+        font-size: 14px;
+        line-height: 19px;
+    }
+
+    .steps-item__description {
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: $point-three) {
+    .start-search__input::placeholder {
+        font-size: 10px;
+        line-height: 12px;
+    }
+
+    h2 {
+        font-size: 20px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: $point-four) {
+
+    h2 {
+        font-size: 10px;
+        line-height: 15px;
+    }
 }

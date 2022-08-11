@@ -1,4 +1,12 @@
+@import '../../styles/abstract/variables';
+
 .wrapper {
   width: 1440px;
   margin: 0 auto;
+}
+
+@media (max-width: $point-one) {
+  .wrapper {
+    width: 100%;
+  }
 }

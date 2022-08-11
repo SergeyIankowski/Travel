@@ -1,17 +1,33 @@
 @import '../../styles/abstract/variables';
+
 .navigation {
-  
   ul {
-    
     list-style-type: none;
 
     display: flex;
     gap: 42px;
     align-content: center;
     padding-left: 0;
+
     a {
       text-decoration: none;
       color: $header-text-color;
+    }
+  }
+}
+
+@media (max-width: $point-one) {
+  .navigation {
+    ul {
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: $point-three) {
+  .navigation {
+    ul {
+      flex-direction: column;
     }
   }
 }

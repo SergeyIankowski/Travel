@@ -1,0 +1,92 @@
+@import '../../styles/abstract/variables';
+
+.sidebar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 196px;
+  position: relative;
+  z-index: 20;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 7px;
+
+  width: 35px;
+  cursor: pointer;
+
+}
+
+.hamburger__line {
+  width: 100%;
+  height: 3px;
+  background-color: $hamburger-color;
+}
+
+.close-icon {
+  display: none;
+  width: 32px;
+  height: 32px;
+
+  position: absolute;
+  top: 5px;
+  left: 5px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 15px;
+    content: ' ';
+    height: 33px;
+    width: 2px;
+    background-color: white;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.close-icon__line {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+}
+
+@media (max-width: $point-one) {
+  .sidebar {
+    gap: 45px;
+  }
+}
+
+@media (max-width: $point-three) {
+  .hamburger {
+    display: flex;
+  }
+
+  .sidebar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 15px 44px 15px;
+    background-color: $sidebar-color;
+    border-radius: 10px;
+    transition: opacity 2s;
+  }
+
+  .sidebar_opened {
+    display: flex;
+  }
+
+  .close-icon {
+    display: block;
+  }
+}

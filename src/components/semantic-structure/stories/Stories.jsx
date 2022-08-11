@@ -3,14 +3,16 @@ import './stories.scss';
 
 function Story({ data }) {
   return (
-    <div className="story">
-      <img src={data.imgPath} alt={data.imgCaption} className="story__img" />
-      <div className="story__description">
-        <h3 className="story__head">{data.head}</h3>
-        <p className="story__synopsis">{data.synopsis}</p>
-        <a href="#" className="story__read-more-link">Read More</a>
+    <React.StrictMode>
+      <div className="story">
+        <img src={data.imgPath} alt={data.imgCaption} className="story__img" />
+        <div className="story__description">
+          <h3 className="story__head">{data.head}</h3>
+          <p className="story__synopsis">{data.synopsis}</p>
+          <a href="#" className="story__read-more-link">Read More</a>
+        </div>
       </div>
-    </div>
+    </React.StrictMode>
   );
 }
 

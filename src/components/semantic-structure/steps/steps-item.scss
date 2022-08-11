@@ -1,3 +1,5 @@
+@import '../../../styles/abstract/variables';
+
 .steps-item {
   display: flex;
   flex-direction: column;
@@ -8,4 +10,30 @@
 .steps-item__icon {
   width: 100px;
   height: 100px;
+}
+
+@media (max-width: $point-one) {
+  .steps-item {
+    gap: 20px;
+  }
+
+  .steps-item__description {
+    width: 25vw;
+    text-align: center;
+  }
+}
+
+@media (max-width: $point-two) {}
+
+@media (max-width: $point-three) {
+  .steps-item__icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+@media (max-width: $point-four) {
+  .steps-item__description {
+    word-wrap: break-word;
+  }
 }

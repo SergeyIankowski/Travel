@@ -1,6 +1,25 @@
+@import '../../../styles/abstract/variables';
+
 .start {
   background-image: url('../../../assets/images/bg-img-preview.jpg');
   background-size: cover;
   background-position: bottom;
   height: 675px;
+  width: 100%;
 }
+
+@media (max-width: $point-one) {
+  .start {
+    height: calc(0.46875 * 100vw)
+  }
+}
+
+@media (max-width: $point-two) {}
+
+@media (max-width: $point-three) {
+  .start {
+    height: calc(0.375 * 100vw)
+  }
+}
+
+@media (max-width: $point-four) {}

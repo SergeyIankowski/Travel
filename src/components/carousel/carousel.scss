@@ -4,28 +4,30 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input[type="radio"] {
+  position: absolute;
+  visibility: hidden;
 }
 
 .slider {
   display: flex;
   gap: 60px;
   justify-content: flex-start;
-  // margin-left: -200px
-}
-
-.carousel__item {
-  position: relative;
-}
-
-.carousel__caption {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
 }
 
 .markers {
   display: flex;
   gap: 10px;
+  align-self: center;
+  position: absolute;
+  left: 47.5%;
+  bottom: 7%;
 }
 
 .marker {
@@ -33,12 +35,13 @@
   height: 20px;
   border-radius: 50%;
   background-color: $marker-color;
-}
-
-.marker:hover {
-  background-color: $marker-color-checked;
+  border: 2px solid white;
 }
 
 .marker_checked {
+  background-color: $marker-color-checked;
+}
+
+.marker:hover {
   background-color: $marker-color-checked;
 }

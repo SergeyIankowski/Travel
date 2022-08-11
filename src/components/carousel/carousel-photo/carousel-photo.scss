@@ -1,0 +1,21 @@
+.carousel__item {
+  position: relative;
+  display: none;
+  justify-content: center;
+  width: 100%;
+
+}
+
+.carousel__item_show {
+  display: flex;
+}
+
+.carousel__photo {
+  // height: 600px;s
+}
+
+.carousel__caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
