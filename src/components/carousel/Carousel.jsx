@@ -2,32 +2,24 @@ import React, { useState } from 'react';
 import './carousel.scss';
 import Photo from './carousel-photo/CarouselPhoto';
 
-// const setRadioBtns = (photoData) => {
-//   const inputs = photoData.map((photo, index) => (
-//     <input
-//       className="radio"
-//       type="radio"
-//       name="photo-navigation"
-//       id={`btn${index + 1}`}
-//       key={photo.name}
-//     />
-//   ));
-//   return inputs;
-// };
-
 function Carousel({ photos }) {
   const [current, setCurrent] = useState(0);
-  // const { length } = photos;
+  const { length } = photos;
+
   if (!Array.isArray(photos) || photos.length <= 0) {
     return null;
   }
-  // let timerId = setInterval(
-  //   () => { setCurrent(current === length - 1 ? 0 : current + 1); },
-  //   1000,
-  // );
+  // auto slide for photos
+
+  const timerId = setTimeout(() => setCurrent(current === length - 1 ? 0 : current + 1), 10000);
+
+  // click handler for markers
+
   const handleMarkerClick = (e) => {
+    clearTimeout(timerId);
     setCurrent(+e.target.dataset.markerId);
   };
+
   const markers = photos.map((obj, index) => (
     // eslint-disable-next-line jsx-a11y/control-has-associated-label
     <button

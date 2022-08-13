@@ -73,14 +73,15 @@
 
 @media (max-width: $point-four) {
   .plan-your-trip {
-    width: 100%;
+    width: 90%;
     height: 100%;
     align-items: center;
     justify-content: center;
   }
 
   .start-search__input {
-    width: 80vw;
+    padding-left: 5px;
+    width: 70vw;
   }
 
   .start__head {

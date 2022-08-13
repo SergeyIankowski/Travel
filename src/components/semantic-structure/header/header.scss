@@ -26,7 +26,11 @@
   }
 }
 
-@media (max-width: $point-two) {}
+@media (max-width: $point-two) {
+  .header {
+    height: calc(0.09375 * 100vw);
+  }
+}
 
 @media (max-width: $point-three) {
   .header {

@@ -61,7 +61,7 @@ h2 {
 h3 {
     font-family: 'Aleo';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 900;
     font-size: 35px;
     line-height: 42px;
     color: $text-color-dark;
@@ -145,12 +145,27 @@ h3 {
         line-height: 39px;
     }
 
+    h3 {
+        font-size: 30px;
+        line-height: 35px;
+    }
+
     .start__description {
         font-size: 16px;
         line-height: 20px;
     }
 
     .steps-item__description {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .story__synopsis {
+        font-size: 1.15rem;
+        line-height: 1.4rem;
+    }
+
+    .story__read-more-link {
         font-size: 18px;
         line-height: 22px;
     }
@@ -169,9 +184,24 @@ h3 {
         line-height: 35px;
     }
 
+    h3 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
     .start__description {
         font-size: 14px;
         line-height: 18px;
+    }
+
+    .story__synopsis {
+        font-size: 1rem;
+        line-height: 1.2rem;
+    }
+
+    .story__read-more-link {
+        font-size: 16px;
+        line-height: 20px;
     }
 
 }
@@ -185,6 +215,11 @@ h3 {
     h2 {
         font-size: 25px;
         line-height: 30px;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 25px;
     }
 
     .start__description {
@@ -206,6 +241,21 @@ h3 {
         font-size: 14px;
         line-height: 18px;
     }
+
+    .carousel__caption {
+        font-size: 16px;
+        line-height: 21px;
+    }
+
+    .story__synopsis {
+        font-size: 0.8rem;
+        line-height: 1rem;
+    }
+
+    .story__read-more-link {
+        font-size: 15px;
+        line-height: 19px;
+    }
 }
 
 @media (max-width: $point-three) {
@@ -218,6 +268,22 @@ h3 {
         font-size: 20px;
         line-height: 25px;
     }
+
+    h3 {
+        font-size: 15px;
+        line-height: 20px;
+    }
+
+    .story__synopsis {
+        font-size: 0.7rem;
+        line-height: 0.85rem;
+    }
+
+    .story__read-more-link {
+        font-size: 13px;
+        line-height: 15px;
+    }
+
 }
 
 @media (max-width: $point-four) {
@@ -225,5 +291,20 @@ h3 {
     h2 {
         font-size: 10px;
         line-height: 15px;
+    }
+
+    h3 {
+        font-size: 11px;
+        line-height: 13px;
+    }
+
+    .story__synopsis {
+        font-size: 0.6rem;
+        line-height: 0.8rem;
+    }
+
+    .story__read-more-link {
+        font-size: 9px;
+        line-height: 11px;
     }
 }

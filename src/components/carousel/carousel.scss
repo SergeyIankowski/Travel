@@ -26,8 +26,9 @@ input[type="radio"] {
   gap: 10px;
   align-self: center;
   position: absolute;
-  left: 47.5%;
+  right: 25%;
   bottom: 7%;
+  z-index: 10;
 }
 
 .marker {
@@ -35,7 +36,7 @@ input[type="radio"] {
   height: 20px;
   border-radius: 50%;
   background-color: $marker-color;
-  border: 2px solid white;
+  border: 0;
 }
 
 .marker_checked {
@@ -45,3 +46,23 @@ input[type="radio"] {
 .marker:hover {
   background-color: $marker-color-checked;
 }
+
+@media (max-width: $point-one) {}
+
+@media (max-width: $point-two) {}
+
+@media (max-width: $point-three) {
+  .markers {
+    gap: 5px;
+    left: 47.5%;
+    bottom: 7%;
+    z-index: 10;
+  }
+
+  .marker {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: $point-four) {}

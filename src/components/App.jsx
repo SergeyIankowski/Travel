@@ -19,12 +19,12 @@ function App() {
   const footer = <Footer />;
   return (
     <>
-      {/* <Wrapper elem={header} />
-      <Wrapper elem={start} /> */}
+      <Wrapper elem={header} />
+      <Wrapper elem={start} />
       <Wrapper elem={steps} />
-      {/* <Wrapper elem={destinations} />
+      <Wrapper elem={destinations} />
       <Wrapper elem={stories} />
-      <Wrapper elem={footer} /> */}
+      <Wrapper elem={footer} />
 
     </>
   );

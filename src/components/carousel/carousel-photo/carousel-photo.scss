@@ -1,21 +1,89 @@
+@import '../../../styles/abstract/variables';
+
 .carousel__item {
   position: relative;
   display: none;
   justify-content: center;
-  width: 100%;
-
+  width: 800px;
+  height: 800px;
+  overflow: hidden;
+  border-radius: 20px;
 }
 
 .carousel__item_show {
   display: flex;
+  animation: change-photo 1.5s ease-in-out;
 }
 
 .carousel__photo {
-  // height: 600px;s
+  // height: 600px;
 }
 
 .carousel__caption {
   position: absolute;
   bottom: 20px;
   left: 20px;
+}
+
+@keyframes change-photo {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: $point-one) {
+  .carousel__photo {
+    height: 600px;
+  }
+
+  .carousel__item {
+    width: 600px;
+    height: 600px;
+  }
+}
+
+@media (max-width: $point-two) {
+  .carousel__photo {
+    height: 500px;
+    // width: 500px;
+  }
+
+  .carousel__item {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@media (max-width: $point-three) {
+  .carousel__photo {
+    height: 400px;
+    // width: 400px;
+  }
+
+  .carousel__item {
+    width: 400px;
+    height: 400px;
+  }
+
+  .carousel__caption {
+    top: 10px;
+    left: 10px;
+  }
+}
+
+@media (max-width: $point-four) {
+  .carousel__photo {
+    height: 300px;
+  }
+
+  .carousel__item {
+    height: 230px;
+    max-width: 300px;
+    align-items: center;
+
+  }
 }
