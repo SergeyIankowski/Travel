@@ -26,7 +26,7 @@ input[type="radio"] {
   gap: 10px;
   align-self: center;
   position: absolute;
-  right: 25%;
+  right: 30%;
   bottom: 7%;
   z-index: 10;
 }
@@ -49,7 +49,11 @@ input[type="radio"] {
 
 @media (max-width: $point-one) {}
 
-@media (max-width: $point-two) {}
+@media (max-width: $point-two) {
+  .markers {
+    right: 25%;
+  }
+}
 
 @media (max-width: $point-three) {
   .markers {

@@ -9,14 +9,30 @@
   padding-bottom: 80px;
 }
 
-@media (max-width: $point-one) {}
+@media (max-width: $point-one) {
+  .destinations {
+    padding-bottom: 60px;
+  }
+}
 
-@media (max-width: $point-two) {}
+@media (max-width: $point-two) {
+  .destinations {
+    padding-bottom: 50px;
+  }
+}
 
 @media (max-width: $point-three) {
   .destinations {
     gap: 20px;
   }
+
+  .destinations {
+    padding-bottom: 40px;
+  }
 }
 
-@media (max-width: $point-four) {}
+@media (max-width: $point-four) {
+  .destinations {
+    padding-bottom: 20px;
+  }
+}
