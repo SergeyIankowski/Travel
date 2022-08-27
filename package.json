@@ -4,8 +4,9 @@
   "description": "travel landing",
   "main": "index.js",
   "scripts": {
-    "webpack": "webpack --watch",
-    "dev-server": "webpack-dev-server --open"
+    "build-dev": "webpack --watch --mode=development",
+    "dev-server": "webpack-dev-server --open",
+    "build-prod": "webpack --mode=production"
   },
   "author": "Sergey Iankowski <garret933@gmail.com>",
   "license": "ISC",
