@@ -216,6 +216,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _carousel_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./carousel.scss */ "./src/components/carousel/carousel.scss");
 /* harmony import */ var _carousel_photo_CarouselPhoto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./carousel-photo/CarouselPhoto */ "./src/components/carousel/carousel-photo/CarouselPhoto.jsx");
+/* harmony import */ var _assets_icons_carousel_left_arrow_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/icons/carousel-left-arrow.svg */ "./src/assets/icons/carousel-left-arrow.svg");
+/* harmony import */ var _assets_icons_carousel_right_arrow_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../assets/icons/carousel-right-arrow.svg */ "./src/assets/icons/carousel-right-arrow.svg");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -232,49 +234,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function Carousel(_ref) {
-  var photos = _ref.photos;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
-      _useState2 = _slicedToArray(_useState, 2),
-      current = _useState2[0],
-      setCurrent = _useState2[1];
-
-  var length = photos.length;
-
-  if (!Array.isArray(photos) || photos.length <= 0) {
-    return null;
-  } // auto slide for photos
 
 
-  var timerId = setTimeout(function () {
-    return setCurrent(current === length - 1 ? 0 : current + 1);
-  }, 10000); // click handler for markers
-
-  var handleMarkerClick = function handleMarkerClick(e) {
-    clearTimeout(timerId);
-    setCurrent(+e.target.dataset.markerId);
-  };
-
-  var markers = photos.map(function (obj, index) {
-    return (
-      /*#__PURE__*/
-      // eslint-disable-next-line jsx-a11y/control-has-associated-label
-      react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
-        key: obj.name,
-        className: index === current ? 'marker marker_checked' : 'marker',
-        type: "button",
-        "data-marker-id": index,
-        onClick: handleMarkerClick
-      })
-    );
-  });
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "carousel"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "slider"
-  }, photos.map(function (photo, index) {
-    if (index === current) {
+var createPhotosList = function createPhotosList(photosObj, currentForShow) {
+  return photosObj.map(function (photo, index) {
+    if (index === currentForShow) {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_carousel_photo_CarouselPhoto__WEBPACK_IMPORTED_MODULE_2__["default"], {
         key: photo.name,
         caption: photo.name,
@@ -289,7 +253,87 @@ function Carousel(_ref) {
       url: photo.url,
       show: false
     });
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  });
+};
+
+var createMarkers = function createMarkers(itemsObj, lighted, clickHandler) {
+  return itemsObj.map(function (obj, index) {
+    return (
+      /*#__PURE__*/
+      // eslint-disable-next-line jsx-a11y/control-has-associated-label
+      react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+        key: obj.name,
+        className: index === lighted ? 'marker marker_checked' : 'marker',
+        type: "button",
+        "data-marker-id": index,
+        onClick: clickHandler
+      })
+    );
+  });
+};
+
+var createLeftRightButtons = function createLeftRightButtons(leftHandler, rightHandler) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement((react__WEBPACK_IMPORTED_MODULE_0___default().Fragment), null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "carousel__button carousel__button_left",
+    type: "button",
+    onClick: leftHandler
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: _assets_icons_carousel_left_arrow_svg__WEBPACK_IMPORTED_MODULE_3__,
+    className: "left__button",
+    alt: "carousel left arrow"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("button", {
+    className: "carousel__button carousel__button_right",
+    type: "button",
+    onClick: rightHandler
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
+    src: _assets_icons_carousel_right_arrow_svg__WEBPACK_IMPORTED_MODULE_4__,
+    className: "right__button",
+    alt: "carousel right arrow"
+  })));
+};
+
+function Carousel(_ref) {
+  var photos = _ref.photos;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(0),
+      _useState2 = _slicedToArray(_useState, 2),
+      current = _useState2[0],
+      setCurrent = _useState2[1];
+
+  var length = photos.length;
+
+  if (!Array.isArray(photos) || photos.length <= 0) {
+    return null;
+  } // auto slide for photos functionality
+
+
+  var timerId = setTimeout(function () {
+    return setCurrent(current === length - 1 ? 0 : current + 1);
+  }, 10000); // click handler for markers
+
+  var handleMarkerClick = function handleMarkerClick(e) {
+    clearTimeout(timerId);
+    setCurrent(+e.target.dataset.markerId);
+  };
+
+  var handleLeftArrowClick = function handleLeftArrowClick() {
+    clearTimeout(timerId);
+    setCurrent(current === length - 1 ? 0 : current - 1);
+  };
+
+  var handleRightArrowClick = function handleRightArrowClick() {
+    clearTimeout(timerId);
+    setCurrent(current === length - 1 ? 0 : current + 1);
+  };
+
+  var markers = createMarkers(photos, current, handleMarkerClick);
+  var photosItems = createPhotosList(photos, current);
+  var leftRightButtons = createLeftRightButtons(handleLeftArrowClick, handleRightArrowClick);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "carousel"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    className: "slider"
+  }, photosItems, leftRightButtons), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "markers"
   }, markers));
 }
@@ -908,7 +952,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* screen ponts */\n.carousel__item {\n  position: relative;\n  display: none;\n  justify-content: center;\n  width: 800px;\n  height: 800px;\n  overflow: hidden;\n  border-radius: 20px;\n}\n\n.carousel__item_show {\n  display: flex;\n  animation: change-photo 1.5s ease-in-out;\n}\n\n.carousel__caption {\n  position: absolute;\n  bottom: 20px;\n  left: 20px;\n}\n\n@keyframes change-photo {\n  from {\n    opacity: 0;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@media (max-width: 1439px) {\n  .carousel__photo {\n    height: 600px;\n  }\n  .carousel__item {\n    width: 600px;\n    height: 600px;\n  }\n}\n@media (max-width: 899px) {\n  .carousel__photo {\n    height: 500px;\n  }\n  .carousel__item {\n    width: 500px;\n    height: 500px;\n  }\n}\n@media (max-width: 769px) {\n  .carousel__photo {\n    height: 400px;\n  }\n  .carousel__item {\n    width: 400px;\n    height: 400px;\n  }\n  .carousel__caption {\n    top: 10px;\n    left: 10px;\n  }\n}\n@media (max-width: 561px) {\n  .carousel__photo {\n    height: 300px;\n  }\n  .carousel__item {\n    height: 230px;\n    max-width: 300px;\n    align-items: center;\n  }\n}", "",{"version":3,"sources":["webpack://./src/styles/abstract/_variables.scss","webpack://./src/components/carousel/carousel-photo/carousel-photo.scss"],"names":[],"mappings":"AAaA,iBAAA;ACXA;EACE,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,YAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;AAAF;;AAGA;EACE,aAAA;EACA,wCAAA;AAAF;;AAOA;EACE,kBAAA;EACA,YAAA;EACA,UAAA;AAJF;;AAOA;EACE;IACE,UAAA;EAJF;EAOA;IACE,UAAA;EALF;AACF;AAQA;EACE;IACE,aAAA;EANF;EASA;IACE,YAAA;IACA,aAAA;EAPF;AACF;AAUA;EACE;IACE,aAAA;EARF;EAYA;IACE,YAAA;IACA,aAAA;EAVF;AACF;AAaA;EACE;IACE,aAAA;EAXF;EAeA;IACE,YAAA;IACA,aAAA;EAbF;EAgBA;IACE,SAAA;IACA,UAAA;EAdF;AACF;AAiBA;EACE;IACE,aAAA;EAfF;EAkBA;IACE,aAAA;IACA,gBAAA;IACA,mBAAA;EAhBF;AACF","sourcesContent":["$header-text-color: #ffffff;\n$header-bg-color: rgba(242, 120, 92, 0.7);\n$header-hight: 90px;\n$button-color: #0D606F;\n$button-text-color: #ffffff;\n$text-color-light: #ffffff;\n$text-color-dark: #000000;\n$text-color-colored: #F2785C;\n$marker-color: rgba(242, 120, 92, 0.5);\n$marker-color-checked: #F2785C;\n$story-text-color: #0D606F;\n$hamburger-color: #ffffff;\n$sidebar-color: #F2785C;\n/* screen ponts */\n\n$point-one: 1439px;\n$point-two: 899px;\n$point-three: 769px;\n$point-four: 561px;","@import '../../../styles/abstract/variables';\n\n.carousel__item {\n  position: relative;\n  display: none;\n  justify-content: center;\n  width: 800px;\n  height: 800px;\n  overflow: hidden;\n  border-radius: 20px;\n}\n\n.carousel__item_show {\n  display: flex;\n  animation: change-photo 1.5s ease-in-out;\n}\n\n.carousel__photo {\n  // height: 600px;\n}\n\n.carousel__caption {\n  position: absolute;\n  bottom: 20px;\n  left: 20px;\n}\n\n@keyframes change-photo {\n  from {\n    opacity: 0;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n@media (max-width: $point-one) {\n  .carousel__photo {\n    height: 600px;\n  }\n\n  .carousel__item {\n    width: 600px;\n    height: 600px;\n  }\n}\n\n@media (max-width: $point-two) {\n  .carousel__photo {\n    height: 500px;\n    // width: 500px;\n  }\n\n  .carousel__item {\n    width: 500px;\n    height: 500px;\n  }\n}\n\n@media (max-width: $point-three) {\n  .carousel__photo {\n    height: 400px;\n    // width: 400px;\n  }\n\n  .carousel__item {\n    width: 400px;\n    height: 400px;\n  }\n\n  .carousel__caption {\n    top: 10px;\n    left: 10px;\n  }\n}\n\n@media (max-width: $point-four) {\n  .carousel__photo {\n    height: 300px;\n  }\n\n  .carousel__item {\n    height: 230px;\n    max-width: 300px;\n    align-items: center;\n\n  }\n}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* screen ponts */\n.carousel__item {\n  position: relative;\n  display: none;\n  justify-content: center;\n  width: 800px;\n  height: 800px;\n  overflow: hidden;\n  border-radius: 20px;\n}\n\n.carousel__item_show {\n  display: flex;\n  animation: change-photo 1.5s ease-in-out;\n}\n\n.carousel__caption {\n  position: absolute;\n  bottom: 20px;\n  left: 20px;\n}\n\n@keyframes change-photo {\n  from {\n    opacity: 0.2;\n  }\n  to {\n    opacity: 1;\n  }\n}\n@media (max-width: 1439px) {\n  .carousel__photo {\n    height: 600px;\n  }\n  .carousel__item {\n    width: 600px;\n    height: 600px;\n  }\n}\n@media (max-width: 899px) {\n  .carousel__photo {\n    height: 500px;\n  }\n  .carousel__item {\n    width: 500px;\n    height: 500px;\n  }\n}\n@media (max-width: 769px) {\n  .carousel__photo {\n    height: 400px;\n  }\n  .carousel__item {\n    width: 400px;\n    height: 400px;\n  }\n  .carousel__caption {\n    top: 10px;\n    left: 10px;\n  }\n}\n@media (max-width: 561px) {\n  .carousel__photo {\n    height: 300px;\n  }\n  .carousel__item {\n    height: 230px;\n    max-width: 300px;\n    align-items: center;\n  }\n}", "",{"version":3,"sources":["webpack://./src/styles/abstract/_variables.scss","webpack://./src/components/carousel/carousel-photo/carousel-photo.scss"],"names":[],"mappings":"AAaA,iBAAA;ACXA;EACE,kBAAA;EACA,aAAA;EACA,uBAAA;EACA,YAAA;EACA,aAAA;EACA,gBAAA;EACA,mBAAA;AAAF;;AAGA;EACE,aAAA;EACA,wCAAA;AAAF;;AAOA;EACE,kBAAA;EACA,YAAA;EACA,UAAA;AAJF;;AAOA;EACE;IACE,YAAA;EAJF;EAOA;IACE,UAAA;EALF;AACF;AAQA;EACE;IACE,aAAA;EANF;EASA;IACE,YAAA;IACA,aAAA;EAPF;AACF;AAUA;EACE;IACE,aAAA;EARF;EAYA;IACE,YAAA;IACA,aAAA;EAVF;AACF;AAaA;EACE;IACE,aAAA;EAXF;EAeA;IACE,YAAA;IACA,aAAA;EAbF;EAgBA;IACE,SAAA;IACA,UAAA;EAdF;AACF;AAiBA;EACE;IACE,aAAA;EAfF;EAkBA;IACE,aAAA;IACA,gBAAA;IACA,mBAAA;EAhBF;AACF","sourcesContent":["$header-text-color: #ffffff;\n$header-bg-color: rgba(242, 120, 92, 0.7);\n$header-hight: 90px;\n$button-color: #0D606F;\n$button-text-color: #ffffff;\n$text-color-light: #ffffff;\n$text-color-dark: #000000;\n$text-color-colored: #F2785C;\n$marker-color: rgba(242, 120, 92, 0.5);\n$marker-color-checked: #F2785C;\n$story-text-color: #0D606F;\n$hamburger-color: #ffffff;\n$sidebar-color: #F2785C;\n/* screen ponts */\n\n$point-one: 1439px;\n$point-two: 899px;\n$point-three: 769px;\n$point-four: 561px;","@import '../../../styles/abstract/variables';\n\n.carousel__item {\n  position: relative;\n  display: none;\n  justify-content: center;\n  width: 800px;\n  height: 800px;\n  overflow: hidden;\n  border-radius: 20px;\n}\n\n.carousel__item_show {\n  display: flex;\n  animation: change-photo 1.5s ease-in-out;\n}\n\n.carousel__photo {\n  // height: 600px;\n}\n\n.carousel__caption {\n  position: absolute;\n  bottom: 20px;\n  left: 20px;\n}\n\n@keyframes change-photo {\n  from {\n    opacity: 0.2;\n  }\n\n  to {\n    opacity: 1;\n  }\n}\n\n@media (max-width: $point-one) {\n  .carousel__photo {\n    height: 600px;\n  }\n\n  .carousel__item {\n    width: 600px;\n    height: 600px;\n  }\n}\n\n@media (max-width: $point-two) {\n  .carousel__photo {\n    height: 500px;\n    // width: 500px;\n  }\n\n  .carousel__item {\n    width: 500px;\n    height: 500px;\n  }\n}\n\n@media (max-width: $point-three) {\n  .carousel__photo {\n    height: 400px;\n    // width: 400px;\n  }\n\n  .carousel__item {\n    width: 400px;\n    height: 400px;\n  }\n\n  .carousel__caption {\n    top: 10px;\n    left: 10px;\n  }\n}\n\n@media (max-width: $point-four) {\n  .carousel__photo {\n    height: 300px;\n  }\n\n  .carousel__item {\n    height: 230px;\n    max-width: 300px;\n    align-items: center;\n\n  }\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -934,7 +978,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "/* screen ponts */\n.carousel {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\ninput[type=radio] {\n  position: absolute;\n  visibility: hidden;\n}\n\n.slider {\n  display: flex;\n  gap: 60px;\n  justify-content: flex-start;\n}\n\n.markers {\n  display: flex;\n  gap: 10px;\n  align-self: center;\n  position: absolute;\n  right: 30%;\n  bottom: 7%;\n  z-index: 10;\n}\n\n.marker {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background-color: rgba(242, 120, 92, 0.5);\n  border: 0;\n}\n\n.marker_checked {\n  background-color: #F2785C;\n}\n\n.marker:hover {\n  background-color: #F2785C;\n}\n\n@media (max-width: 899px) {\n  .markers {\n    right: 25%;\n  }\n}\n@media (max-width: 769px) {\n  .markers {\n    gap: 5px;\n    left: 47.5%;\n    bottom: 7%;\n    z-index: 10;\n  }\n  .marker {\n    width: 10px;\n    height: 10px;\n  }\n}", "",{"version":3,"sources":["webpack://./src/styles/abstract/_variables.scss","webpack://./src/components/carousel/carousel.scss"],"names":[],"mappings":"AAaA,iBAAA;ACXA;EACE,kBAAA;EACA,gBAAA;EACA,WAAA;EAEA,aAAA;EACA,sBAAA;EACA,mBAAA;AADF;;AAIA;EACE,kBAAA;EACA,kBAAA;AADF;;AAIA;EACE,aAAA;EACA,SAAA;EACA,2BAAA;AADF;;AAIA;EACE,aAAA;EACA,SAAA;EACA,kBAAA;EACA,kBAAA;EACA,UAAA;EACA,UAAA;EACA,WAAA;AADF;;AAIA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;EACA,yCD7Ba;EC8Bb,SAAA;AADF;;AAIA;EACE,yBDjCqB;ACgCvB;;AAIA;EACE,yBDrCqB;ACoCvB;;AAMA;EACE;IACE,UAAA;EAHF;AACF;AAMA;EACE;IACE,QAAA;IACA,WAAA;IACA,UAAA;IACA,WAAA;EAJF;EAOA;IACE,WAAA;IACA,YAAA;EALF;AACF","sourcesContent":["$header-text-color: #ffffff;\n$header-bg-color: rgba(242, 120, 92, 0.7);\n$header-hight: 90px;\n$button-color: #0D606F;\n$button-text-color: #ffffff;\n$text-color-light: #ffffff;\n$text-color-dark: #000000;\n$text-color-colored: #F2785C;\n$marker-color: rgba(242, 120, 92, 0.5);\n$marker-color-checked: #F2785C;\n$story-text-color: #0D606F;\n$hamburger-color: #ffffff;\n$sidebar-color: #F2785C;\n/* screen ponts */\n\n$point-one: 1439px;\n$point-two: 899px;\n$point-three: 769px;\n$point-four: 561px;","@import '../../styles/abstract/variables';\n\n.carousel {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\ninput[type=\"radio\"] {\n  position: absolute;\n  visibility: hidden;\n}\n\n.slider {\n  display: flex;\n  gap: 60px;\n  justify-content: flex-start;\n}\n\n.markers {\n  display: flex;\n  gap: 10px;\n  align-self: center;\n  position: absolute;\n  right: 30%;\n  bottom: 7%;\n  z-index: 10;\n}\n\n.marker {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background-color: $marker-color;\n  border: 0;\n}\n\n.marker_checked {\n  background-color: $marker-color-checked;\n}\n\n.marker:hover {\n  background-color: $marker-color-checked;\n}\n\n@media (max-width: $point-one) {}\n\n@media (max-width: $point-two) {\n  .markers {\n    right: 25%;\n  }\n}\n\n@media (max-width: $point-three) {\n  .markers {\n    gap: 5px;\n    left: 47.5%;\n    bottom: 7%;\n    z-index: 10;\n  }\n\n  .marker {\n    width: 10px;\n    height: 10px;\n  }\n}\n\n@media (max-width: $point-four) {}"],"sourceRoot":""}]);
+___CSS_LOADER_EXPORT___.push([module.id, "/* screen ponts */\n.carousel {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\ninput[type=radio] {\n  position: absolute;\n  visibility: hidden;\n}\n\n.slider {\n  display: flex;\n  gap: 60px;\n  justify-content: flex-start;\n  position: relative;\n}\n\n.markers {\n  display: flex;\n  gap: 10px;\n  align-self: center;\n  position: absolute;\n  right: 30%;\n  bottom: 7%;\n  z-index: 10;\n}\n\n.marker {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background-color: rgba(242, 120, 92, 0.5);\n  border: 0;\n}\n\n.marker_checked {\n  background-color: #F2785C;\n}\n\n.marker:hover {\n  background-color: #F2785C;\n}\n\n.carousel__button {\n  display: none;\n}\n\n@media (max-width: 899px) {\n  .markers {\n    right: 25%;\n  }\n}\n@media (max-width: 769px) {\n  .markers {\n    gap: 5px;\n    left: 47.5%;\n    bottom: 7%;\n    z-index: 10;\n  }\n  .marker {\n    width: 10px;\n    height: 10px;\n  }\n  .carousel__button {\n    display: block;\n    position: absolute;\n    z-index: 10;\n    padding: 15px;\n    border: 0;\n    background-color: rgba(0, 0, 0, 0);\n  }\n  .carousel__button_left {\n    top: 40%;\n    left: 1%;\n  }\n  .carousel__button_right {\n    top: 40%;\n    right: 1%;\n  }\n}", "",{"version":3,"sources":["webpack://./src/styles/abstract/_variables.scss","webpack://./src/components/carousel/carousel.scss"],"names":[],"mappings":"AAaA,iBAAA;ACXA;EACE,kBAAA;EACA,gBAAA;EACA,WAAA;EAEA,aAAA;EACA,sBAAA;EACA,mBAAA;AADF;;AAIA;EACE,kBAAA;EACA,kBAAA;AADF;;AAIA;EACE,aAAA;EACA,SAAA;EACA,2BAAA;EAEA,kBAAA;AAFF;;AAKA;EACE,aAAA;EACA,SAAA;EACA,kBAAA;EAEA,kBAAA;EACA,UAAA;EACA,UAAA;EACA,WAAA;AAHF;;AAMA;EACE,WAAA;EACA,YAAA;EACA,kBAAA;EACA,yCDhCa;ECiCb,SAAA;AAHF;;AAMA;EACE,yBDpCqB;ACiCvB;;AAMA;EACE,yBDxCqB;ACqCvB;;AAMA;EACE,aAAA;AAHF;;AAQA;EACE;IACE,UAAA;EALF;AACF;AAQA;EACE;IACE,QAAA;IACA,WAAA;IACA,UAAA;IACA,WAAA;EANF;EASA;IACE,WAAA;IACA,YAAA;EAPF;EAUA;IACE,cAAA;IACA,kBAAA;IACA,WAAA;IACA,aAAA;IACA,SAAA;IACA,kCAAA;EARF;EAWA;IACE,QAAA;IACA,QAAA;EATF;EAYA;IACE,QAAA;IACA,SAAA;EAVF;AACF","sourcesContent":["$header-text-color: #ffffff;\n$header-bg-color: rgba(242, 120, 92, 0.7);\n$header-hight: 90px;\n$button-color: #0D606F;\n$button-text-color: #ffffff;\n$text-color-light: #ffffff;\n$text-color-dark: #000000;\n$text-color-colored: #F2785C;\n$marker-color: rgba(242, 120, 92, 0.5);\n$marker-color-checked: #F2785C;\n$story-text-color: #0D606F;\n$hamburger-color: #ffffff;\n$sidebar-color: #F2785C;\n/* screen ponts */\n\n$point-one: 1439px;\n$point-two: 899px;\n$point-three: 769px;\n$point-four: 561px;","@import '../../styles/abstract/variables';\n\n.carousel {\n  position: relative;\n  overflow: hidden;\n  width: 100%;\n\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n\ninput[type=\"radio\"] {\n  position: absolute;\n  visibility: hidden;\n}\n\n.slider {\n  display: flex;\n  gap: 60px;\n  justify-content: flex-start;\n\n  position: relative;\n}\n\n.markers {\n  display: flex;\n  gap: 10px;\n  align-self: center;\n\n  position: absolute;\n  right: 30%;\n  bottom: 7%;\n  z-index: 10;\n}\n\n.marker {\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background-color: $marker-color;\n  border: 0;\n}\n\n.marker_checked {\n  background-color: $marker-color-checked;\n}\n\n.marker:hover {\n  background-color: $marker-color-checked;\n}\n\n.carousel__button {\n  display: none;\n}\n\n@media (max-width: $point-one) {}\n\n@media (max-width: $point-two) {\n  .markers {\n    right: 25%;\n  }\n}\n\n@media (max-width: $point-three) {\n  .markers {\n    gap: 5px;\n    left: 47.5%;\n    bottom: 7%;\n    z-index: 10;\n  }\n\n  .marker {\n    width: 10px;\n    height: 10px;\n  }\n\n  .carousel__button {\n    display: block;\n    position: absolute;\n    z-index: 10;\n    padding: 15px;\n    border: 0;\n    background-color: rgba(0, 0, 0, 0);\n  }\n\n  .carousel__button_left {\n    top: 40%;\n    left: 1%;\n  }\n\n  .carousel__button_right {\n    top: 40%;\n    right: 1%;\n  }\n}\n\n@media (max-width: $point-four) {}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -36105,6 +36149,26 @@ module.exports = __webpack_require__.p + "assets/icons/calendar.svg";
 
 /***/ }),
 
+/***/ "./src/assets/icons/carousel-left-arrow.svg":
+/*!**************************************************!*\
+  !*** ./src/assets/icons/carousel-left-arrow.svg ***!
+  \**************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/icons/carousel-left-arrow.svg";
+
+/***/ }),
+
+/***/ "./src/assets/icons/carousel-right-arrow.svg":
+/*!***************************************************!*\
+  !*** ./src/assets/icons/carousel-right-arrow.svg ***!
+  \***************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "assets/icons/carousel-right-arrow.svg";
+
+/***/ }),
+
 /***/ "./src/assets/icons/instagram-icon.svg":
 /*!*********************************************!*\
   !*** ./src/assets/icons/instagram-icon.svg ***!
@@ -36432,4 +36496,4 @@ root.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createEle
 
 /******/ })()
 ;
-//# sourceMappingURL=main.8e8d47b7a7577e779d41.js.map
+//# sourceMappingURL=main.bdcca7abce6e20481f2a.js.map
