@@ -1,7 +1,6 @@
 @import '../../styles/abstract/variables';
 
 .carousel {
-  position: relative;
   overflow: hidden;
   width: 100%;
 
@@ -29,7 +28,7 @@ input[type="radio"] {
   align-self: center;
 
   position: absolute;
-  right: 30%;
+  right: 3%;
   bottom: 7%;
   z-index: 10;
 }
@@ -56,16 +55,11 @@ input[type="radio"] {
 
 @media (max-width: $point-one) {}
 
-@media (max-width: $point-two) {
-  .markers {
-    right: 25%;
-  }
-}
+@media (max-width: $point-two) {}
 
 @media (max-width: $point-three) {
   .markers {
     gap: 5px;
-    left: 47.5%;
     bottom: 7%;
     z-index: 10;
   }

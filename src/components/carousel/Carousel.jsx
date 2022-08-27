@@ -100,10 +100,11 @@ function Carousel({ photos }) {
       <div className="slider">
         {photosItems}
         {leftRightButtons}
+        <div className="markers">
+          {markers}
+        </div>
       </div>
-      <div className="markers">
-        {markers}
-      </div>
+
     </div>
   );
 }
