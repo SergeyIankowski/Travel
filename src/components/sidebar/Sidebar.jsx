@@ -3,8 +3,7 @@ import './sidebar.scss';
 import Navigation from '../navigation/Navigation';
 import LoginButton from '../buttons/Login/LoginButton';
 
-export default function Sidebar() {
-  const navLinks = ['How it works', 'Plan Your Trip', 'Destinations', 'Travel Stories'];
+export default function Sidebar({ linkNames }) {
   const [open, setOpen] = useState(false);
   const handleOpenOrCloseClick = () => {
     setOpen(!open);
@@ -12,7 +11,7 @@ export default function Sidebar() {
   return (
     <>
       <div className={open ? 'sidebar sidebar_opened' : 'sidebar'}>
-        <Navigation navFields={navLinks} />
+        <Navigation navFields={linkNames} linkClickHandler={handleOpenOrCloseClick} />
         <LoginButton innerText="Login" />
         <div className="close-icon" onClick={handleOpenOrCloseClick} />
       </div>

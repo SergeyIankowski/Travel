@@ -2,9 +2,9 @@ import React from 'react';
 import './start.scss';
 import PlanYourTripForm from '../../planYourTripForm/PlanYourTripForm';
 
-function Start() {
+function Start({ idName }) {
   return (
-    <section className="start">
+    <section className="start" id={idName}>
       <PlanYourTripForm />
     </section>
   );

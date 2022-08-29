@@ -4,9 +4,9 @@ import youtube from '../../../assets/icons/youtube-icon.svg';
 import twitter from '../../../assets/icons/twitter-icon.svg';
 import './footer.scss';
 
-function Footer() {
+function Footer({ idName }) {
   return (
-    <footer className="footer">
+    <footer className="footer" id={idName}>
       <div className="alignment-container">
         <div className="footer__description">All Rights Reserved © Travel Portal</div>
         <div className="footer__social-networks-links">

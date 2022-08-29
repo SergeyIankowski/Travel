@@ -11,14 +11,16 @@ import storiesData from './storiesData';
 import '../styles/main.scss';
 
 function App() {
-  const header = <Header />;
-  const start = <Start />;
-  const steps = <Steps />;
-  const destinations = <Destinations />;
-  const stories = <Stories storiesObjArr={storiesData} />;
-  const footer = <Footer />;
+  const navLinks = [{ name: 'How it works', url: 'howItWorks' }, { name: 'Plan Your Trip', url: 'planYourTrip' }, { name: 'Destinations', url: 'destinations' }, { name: 'Travel Stories', url: 'travelStories' }, { name: 'Media', url: 'media' }];
+  const navUrls = navLinks.map((item) => item.url);
+  const header = <Header navLinks={navLinks} />;
+  const start = <Start idName={navUrls[1]} />;
+  const steps = <Steps idName={navUrls[2]} />;
+  const destinations = <Destinations idName={navUrls[2]} />;
+  const stories = <Stories storiesObjArr={storiesData} idName={navUrls[3]} />;
+  const footer = <Footer idName={navUrls[4]} />;
   return (
-    <>
+    <main>
       <Wrapper elem={header} />
       <Wrapper elem={start} />
       <Wrapper elem={steps} />
@@ -26,7 +28,7 @@ function App() {
       <Wrapper elem={stories} />
       <Wrapper elem={footer} />
 
-    </>
+    </main>
   );
 }
 

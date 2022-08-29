@@ -3,12 +3,12 @@ import './header.scss';
 import Logo from '../../logo/Logo';
 import Sidebar from '../../sidebar/Sidebar';
 
-function Header() {
+function Header({ navLinks }) {
   return (
     <React.StrictMode>
       <header className="header">
         <Logo />
-        <Sidebar />
+        <Sidebar linkNames={navLinks} />
       </header>
     </React.StrictMode>
   );
