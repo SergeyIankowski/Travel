@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './sidebar.scss';
 import Navigation from '../navigation/Navigation';
-import LoginButton from '../buttons/Login/LoginButton';
+import LoginButton from '../UI/buttons/Login/LoginButton';
 
 export default function Sidebar({ linkNames }) {
   const [open, setOpen] = useState(false);
