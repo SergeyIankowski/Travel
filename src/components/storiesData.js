@@ -1,7 +1,7 @@
-import thailand from '../assets/images/thailand.jpg';
-import utahPark from '../assets/images/national-park-utah.jpg';
-import snowMountains from '../assets/images/snow-mountains.jpg';
-import longestJourney from '../assets/images/longest-journey.jpg';
+import thailand from '../assets/images/webp/thailand.webp';
+import utahPark from '../assets/images/webp/national-park-utah.webp';
+import snowMountains from '../assets/images/webp/snow-mountains.webp';
+import longestJourney from '../assets/images/webp/longest-journey.webp';
 
 const data = [
   {

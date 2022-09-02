@@ -3,7 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+// const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -24,7 +24,18 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new CleanWebpackPlugin(),
     new ESLintPlugin(),
-    new ImageminWebpWebpackPlugin(),
+    // new ImageminWebpWebpackPlugin({
+    //   config: [{
+    //     test: /\.(jpe?g|png)/,
+    //     options: {
+    //       quality: 75,
+    //     },
+    //   }],
+    //   overrideExtension: true,
+    //   detailedLogs: false,
+    //   silent: false,
+    //   strict: true,
+    // }),
   ],
   devServer: {
     port: 3000,
@@ -36,7 +47,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(jpg|jpeg|png|webp|svg)/,
+        test: /\.(jpe?g|png|webp|svg)/,
         type: 'asset/resource',
       },
       {
