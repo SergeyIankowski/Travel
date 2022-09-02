@@ -3,6 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -23,6 +24,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'src/index.html' }),
     new CleanWebpackPlugin(),
     new ESLintPlugin(),
+    new ImageminWebpWebpackPlugin(),
   ],
   devServer: {
     port: 3000,
@@ -34,7 +36,7 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
-        test: /\.(jpg|jpeg|png|svg)/,
+        test: /\.(jpg|jpeg|png|webp|svg)/,
         type: 'asset/resource',
       },
       {

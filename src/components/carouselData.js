@@ -1,8 +1,8 @@
-import Spain from '../assets/images/spain.jpg';
-import Japan from '../assets/images/japan.jpg';
-import USA from '../assets/images/usa.jpg';
-import Norway from '../assets/images/norway.jpg';
-import Thailand from '../assets/images/thai.jpg';
+import Spain from '../assets/images/webp/spain.webp';
+import Japan from '../assets/images/webp/japan.webp';
+import USA from '../assets/images/webp/usa.webp';
+import Norway from '../assets/images/webp/norway.webp';
+import Thailand from '../assets/images/webp/thai.webp';
 
 const PHOTOS = [
   {
